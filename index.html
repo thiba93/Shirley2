@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mini-site romantique de Saint-Valentin, féerique et personnalisable.">
+  <title>Saint-Valentin | Pour toi, mon amour</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <script id="site-config" type="application/json">
+    {
+      "prenom": "Shirley",
+      "petitsMots": [
+        "Ton sourire rend mes matins plus doux.",
+        "Avec toi, meme le silence est magnifique.",
+        "Tu es ma pause bonheur dans chaque journee.",
+        "Nos rires ensemble sont ma melodie preferee.",
+        "Merci d'etre mon refuge et mon elan.",
+        "Je t'aime plus fort a chaque saison."
+      ],
+      "poeme": "À Center Parcs, janvier scella notre destin,\nSous les pins frissonnants nos mains cherchaient demain,\nPuis Sevran nous revit sous un ciel plus certain,\nComme un rêve gardé depuis l'âge enfantin.\nEn février, Bordeaux\nNous promet ses échos,\nNos pas vers un renouveau.\nTa fossette inégale illumine ton sourire,\nTes yeux font un ovale au moment de s'ouvrir,\nTa cicatrice fine ajoute à ton empire,\nEt ton parfum troublant me fait presque défaillir.\nTu donnes sans compter,\nAuprès des anciens blessés,\nPersévérante à aimer.\nVingt-quatre ans de lumière et de grâce infinie,\nDepuis nos treize ans, nos chemins sont unis,\nJ'adore être avec toi, ta présence m'envahit,\nShirley, ton nom résonne et ma vie s'embellit.\nDrôle et douce à la fois,\nSouriante chaque jour pour moi,\nEt mon cœur ne veut que toi.",
+      "captionsPhotos": [
+        "Premier regard",
+      ],
+      "messageFinalSurprise": "Merci d'illuminer ma vie chaque jour. Mon plus beau cadeau, c'est toi."
+    }
+  </script>
+
+  <canvas id="petals-canvas" aria-hidden="true"></canvas>
+  <div class="aura-layer" aria-hidden="true"></div>
+
+  <div class="heart-rails" aria-hidden="true">
+    <div class="heart-rail heart-rail-left">
+      <span class="side-heart" style="--heart-scale: 0.86; --delay: 0.1s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.64; --delay: 0.5s;"></span>
+      <span class="side-heart" style="--heart-scale: 1.02; --delay: 0.9s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.72; --delay: 1.2s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.95; --delay: 1.7s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.78; --delay: 2s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.9; --delay: 2.4s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.66; --delay: 2.9s;"></span>
+    </div>
+    <div class="heart-rail heart-rail-right">
+      <span class="side-heart" style="--heart-scale: 0.72; --delay: 0.2s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.96; --delay: 0.7s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.68; --delay: 1s;"></span>
+      <span class="side-heart" style="--heart-scale: 1.03; --delay: 1.4s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.76; --delay: 1.9s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.9; --delay: 2.2s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.62; --delay: 2.8s;"></span>
+      <span class="side-heart" style="--heart-scale: 0.84; --delay: 3.1s;"></span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <a href="#hero" class="brand can-sparkle" aria-label="Retour en haut">Notre conte</a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a class="nav-link active" href="#hero">Accueil</a>
+      <a class="nav-link" href="#histoire">Histoire</a>
+      <a class="nav-link" href="#galerie">Galerie</a>
+      <a class="nav-link" href="#mots">Petits mots</a>
+      <a class="nav-link" href="#poeme">Poeme</a>
+      <a class="nav-link" href="#surprise">Surprise</a>
+    </nav>
+  </header>
+
+  <div class="floating-controls" role="group" aria-label="Preferences visuelles">
+    <button id="theme-toggle" class="chip can-sparkle" type="button" aria-pressed="false">Nuit feerique</button>
+    <button id="petals-toggle" class="chip can-sparkle" type="button" aria-pressed="true">Petales : ON</button>
+    <button id="hearts-toggle" class="chip can-sparkle" type="button" aria-pressed="true">Coeurs : ON</button>
+    <button id="aura-toggle" class="chip can-sparkle" type="button" aria-pressed="true">Lueurs : ON</button>
+  </div>
+
+  <main id="contenu">
+    <section id="hero" class="section hero">
+      <div class="hero-copy glass reveal">
+        <p class="eyebrow">Edition Saint-Valentin</p>
+        <h1>Pour toi, mon amour ✨</h1>
+        <p class="hero-subtitle">
+          A toi, <strong data-girlfriend-name>Shirley</strong>, qui transformes chaque moment en chapitre magique.
+        </p>
+        <a class="btn can-sparkle" href="#histoire">Decouvrir notre histoire</a>
+      </div>
+      <div class="hero-art reveal" aria-hidden="true">
+        <div class="bouquet">
+          <span class="stem"></span>
+          <span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span>
+          <span class="flower flower-a"></span>
+          <span class="flower flower-b"></span>
+          <span class="flower flower-c"></span>
+          <span class="flower flower-d"></span>
+          <span class="flower flower-e"></span>
+          <span class="orb orb-a"></span>
+          <span class="orb orb-b"></span>
+          <span class="orb orb-c"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="histoire" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Notre histoire</p>
+        <h2>Les moments qui ont fait naitre notre conte</h2>
+      </div>
+      <ol class="timeline">
+        <li class="timeline-item glass reveal">
+          <p class="timeline-date">10 Novembre 2025</p>
+          <h3>Le premier signe</h3>
+          <p>Un message simple, et deja la sensation d'une evidence.</p>
+        </li>
+        <li class="timeline-item glass reveal">
+          <p class="timeline-date">06 Décembre 2025</p>
+          <h3>Une très bonne nouvelle</h3>
+          <p>Le temps a ralenti, et tout semblait a sa place.</p>
+        </li>
+        <li class="timeline-item glass reveal">
+          <p class="timeline-date">14 Janvier 2026</p>
+          <h3>Le voyage</h3>
+          <p>Quelques heures de route, beaucoup de rires, un bon souvenir.</p>
+        </li>
+        <li class="timeline-item glass reveal">
+          <p class="timeline-date">22 Janvier 2026</p>
+          <h3>De retour à Sevran</h3>
+          <p>Kaaris est venu nous saluer et nous a offert un moment magique.</p>
+        </li>
+        <li class="timeline-item glass reveal">
+          <p class="timeline-date">14 Février 2026</p>
+          <h3>Affaire à suivre...</h3>
+          <p>Coquine...</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="galerie" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Galerie</p>
+        <h2>Nos souvenirs en eclats de rose</h2>
+      </div>
+      <div class="gallery-grid" aria-label="Galerie photo">
+        <figure class="photo-card glass reveal can-sparkle" data-photo="assets/1000007359.jpg" style="--h: 16rem;">
+          <div class="photo-media" role="img" aria-label="Emplacement photo 1 a remplacer"></div>
+          <span class="replace-badge" aria-hidden="true">Replace me</span>
+        </figure>
+        <figure class="photo-card glass reveal can-sparkle" data-photo="assets/1000007455.jpg" style="--h: 20rem;">
+          <div class="photo-media" role="img" aria-label="Emplacement photo 2 a remplacer"></div>
+          <span class="replace-badge" aria-hidden="true">Replace me</span>
+        </figure>
+        <figure class="photo-card glass reveal can-sparkle" data-photo="assets/1000007465.jpg" style="--h: 17rem;">
+          <div class="photo-media" role="img" aria-label="Emplacement photo 3 a remplacer"></div>
+          <span class="replace-badge" aria-hidden="true">Replace me</span>
+        </figure>
+        <figure class="photo-card glass reveal can-sparkle" data-photo="assets/1000007466.jpg" style="--h: 22rem;">
+          <div class="photo-media" role="img" aria-label="Emplacement photo 4 a remplacer"></div>
+          <span class="replace-badge" aria-hidden="true">Replace me</span>
+        </figure>
+        <figure class="photo-card glass reveal can-sparkle" data-photo="assets/1000007649.jpg" style="--h: 18rem;">
+          <div class="photo-media" role="img" aria-label="Emplacement photo 5 a remplacer"></div>
+          <span class="replace-badge" aria-hidden="true">Replace me</span>
+        </figure>
+        <figure class="photo-card glass reveal can-sparkle" data-photo="assets/1000007650.jpg" style="--h: 15rem;">
+          <div class="photo-media" role="img" aria-label="Emplacement photo 6 a remplacer"></div>
+          <span class="replace-badge" aria-hidden="true">Replace me</span>
+        </figure>
+        <figure class="photo-card glass reveal can-sparkle" data-photo="assets/1000007651.jpg" style="--h: 21rem;">
+          <div class="photo-media" role="img" aria-label="Emplacement photo 7 a remplacer"></div>
+          <span class="replace-badge" aria-hidden="true">Replace me</span>
+        </figure>
+      </div>
+    </section>
+
+    <section id="mots" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Petits mots</p>
+        <h2>Des notes tendres pour ton coeur</h2>
+      </div>
+      <div class="notes-grid">
+        <article class="note-card glass reveal can-sparkle">
+          <p class="note-text" data-note-index="0">Ton sourire rend mes matins plus doux.</p>
+        </article>
+        <article class="note-card glass reveal can-sparkle">
+          <p class="note-text" data-note-index="1">Avec toi, meme le silence est magnifique.</p>
+        </article>
+        <article class="note-card glass reveal can-sparkle">
+          <p class="note-text" data-note-index="2">Tu es ma pause bonheur dans chaque journee.</p>
+        </article>
+        <article class="note-card glass reveal can-sparkle">
+          <p class="note-text" data-note-index="3">Nos rires ensemble sont ma melodie preferee.</p>
+        </article>
+        <article class="note-card glass reveal can-sparkle">
+          <p class="note-text" data-note-index="4">Merci d'etre mon refuge et mon elan.</p>
+        </article>
+        <article class="note-card glass reveal can-sparkle">
+          <p class="note-text" data-note-index="5">Je t'aime plus fort a chaque saison.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="poeme" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Poeme</p>
+        <h2>Un souffle ecrit pour toi</h2>
+      </div>
+      <article class="poem-paper reveal" aria-label="Poeme romantique">
+        <p id="poem-text" class="poem-text">À Center Parcs, janvier scella notre destin...</p>
+      </article>
+      <div class="poem-actions reveal">
+        <button id="copy-poem" class="btn secondary can-sparkle" type="button">Copier le poeme</button>
+        <p id="copy-status" class="copy-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="surprise" class="section surprise-section">
+      <div class="glass reveal surprise-box">
+        <p class="eyebrow">Derniere page</p>
+        <h2>J'ai encore une surprise pour toi...</h2>
+        <button id="open-surprise" class="btn can-sparkle" type="button">Ouvrir la surprise 🎁</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Fait avec amour </footer>
+
+  <div id="surprise-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title" aria-describedby="modal-message">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel glass" role="document" tabindex="-1">
+      <button class="modal-close can-sparkle" type="button" data-close-modal aria-label="Fermer la fenetre de surprise">×</button>
+      <div class="modal-burst" aria-hidden="true"></div>
+      <p class="eyebrow">Pour toi</p>
+      <h3 id="modal-title">Mon coeur te choisit, encore et encore</h3>
+      <p id="modal-message" class="modal-message">Merci d'illuminer ma vie chaque jour.</p>
+      <figure class="favorite-frame" data-photo="assets/unnamed.jpg">
+        <div class="photo-media favorite" role="img" aria-label="Photo favorite a remplacer"></div>
+        <span class="replace-badge" aria-hidden="true">Replace me</span>
+      </figure>
+      <button class="btn secondary can-sparkle" type="button" data-close-modal>Fermer</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
